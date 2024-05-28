@@ -1,4 +1,4 @@
-import { Vector3, Vector4 } from './boxzone';
+import { BoxZone, Vector3, Vector4 } from './boxzone';
 import { requestModel } from './streaming';
 import { wait } from './utils';
 
@@ -61,12 +61,43 @@ const spawnPed = async (
 	return ped;
 };
 
+const walkToCoords = async (
+	coords: Vector4,
+	timeout: number,
+): Promise<void> => {
+	const playerPed: number = PlayerPedId();
+	const [x, y, z, w] = coords;
+
+	TaskGoStraightToCoord(playerPed, x, y, z, 1.0, timeout, w, 0.1);
+
+	const zone: BoxZone = new BoxZone(coords, 1, 1);
+	const interval: number = 500;
+
+	for (let i = 0; i < timeout - interval; i += interval) {
+		if (
+			zone.isPointInside(GetEntityCoords(playerPed, true) as Vector3) &&
+			Math.abs(GetEntityHeading(playerPed) - w) < 5
+		) {
+			break;
+		}
+
+		await wait(interval);
+	}
+
+	await wait(interval);
+};
+
 RegisterCommand(
 	'test',
-	() => {
-		spawnPed('a_f_m_fatwhite_01', {
-			scenario: 'WORLD_HUMAN_YOGA',
-		});
+	async () => {
+		await walkToCoords(
+			[790.325256, -920.465942, 25.23584, 263.62207],
+			1000,
+		);
+
+		console.log('fini');
 	},
 	false,
 );
+
+exports('spawnPed', spawnPed);
