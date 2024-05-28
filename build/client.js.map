@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../src/client/ped.ts"],
+  "sourcesContent": ["console.log('bonjour')"],
+  "mappings": ";AAAA,QAAQ,IAAI,SAAS;",
+  "names": []
+}

@@ -1,0 +1,13 @@
+{
+    "compilerOptions": {
+        "module": "ES2020",
+        "target": "ES2020",
+        "moduleResolution": "Node",
+        "baseUrl": "./src",
+        "strict": false,
+        "allowSyntheticDefaultImports": true,
+        "types": ["@citizenfx/client", "@types/node"],
+    },
+    "include": ["./src/**/*"],
+    "exclude": ["./node_modules", "./build", "./scripts"]
+}

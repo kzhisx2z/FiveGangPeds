@@ -1,0 +1,24 @@
+{
+  "name": "fivegang-peds",
+  "version": "1.0.0",
+  "description": "Utility script to manage peds",
+  "repository": "https://github.com/kzhisx2z/FiveGangPeds",
+  "author": "FiveGang",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "build:client": "node --es-module-specifier-resolution=node scripts/client.js",
+    "build": "concurrently \"yarn run build:client\"",
+    "dev:client": "node --es-module-specifier-resolution=node scripts/client.js -dev",
+    "dev": "concurrently \"yarn run dev:client\""
+  },
+  "dependencies": {
+    "@citizenfx/client": "^2.0.8327-1"
+  },
+  "devDependencies": {
+    "@types/node": "^20.12.12",
+    "concurrently": "^8.2.2",
+    "esbuild": "^0.21.4",
+    "prettier": "^3.2.5"
+  }
+}
