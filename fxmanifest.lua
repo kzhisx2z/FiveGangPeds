@@ -4,7 +4,7 @@ lua54 'yes'
 
 name 'FiveGangPeds'
 author 'FiveGang'
-version '1.0.3'
+version '1.0.4'
 repository 'https://github.com/kzhisx2z/FiveGangPeds'
 description 'Utility script to manage peds'
 
