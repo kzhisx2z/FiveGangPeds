@@ -38,5 +38,19 @@ Exemple:
 exports['FiveGangPeds']:walkToCoords(vector4(1.0, 1.0, 1.0, 1.0), customPed, 4000)
  ```
 
+## Development
 
+To begin development with this resource, please issue this command in a command prompt: 
+```
+yarn install
+```
 
+Then, to compile when a file is modified, please run the command: 
+```
+yarn run dev
+```
+
+Or, to compile in production mode, please issue this command:
+```
+yarn run build
+```
