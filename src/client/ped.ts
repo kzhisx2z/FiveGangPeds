@@ -63,20 +63,24 @@ const spawnPed = async (
 
 const walkToCoords = async (
 	coords: Vector4,
-	timeout: number,
+	ped?: number,
+	timeout: number = 5000,
 ): Promise<void> => {
-	const playerPed: number = PlayerPedId();
+	if (!ped) {
+		ped = PlayerPedId();
+	}
+
 	const [x, y, z, w] = coords;
 
-	TaskGoStraightToCoord(playerPed, x, y, z, 1.0, timeout, w, 0.1);
+	TaskGoStraightToCoord(ped, x, y, z, 1.0, timeout, w, 0.1);
 
 	const zone: BoxZone = new BoxZone(coords, 1, 1);
 	const interval: number = 500;
 
 	for (let i = 0; i < timeout - interval; i += interval) {
 		if (
-			zone.isPointInside(GetEntityCoords(playerPed, true) as Vector3) &&
-			Math.abs(GetEntityHeading(playerPed) - w) < 5
+			zone.isPointInside(GetEntityCoords(ped, true) as Vector3) &&
+			Math.abs(GetEntityHeading(ped) - w) < 5
 		) {
 			break;
 		}
