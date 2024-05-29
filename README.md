@@ -5,7 +5,7 @@
 __spawnPed:__
 This function lets you create peds. 
 
-Usage :
+Usage:
 ```lua
 local ped = exports['FiveGangPeds']:spawnPed(model: string | number, options?: {coords?: vector4, scenario?: string})
  ```
@@ -20,7 +20,7 @@ local ped = exports['FiveGangPeds']:spawnPed('a_f_m_tourist_01', {coords = vecto
 __walkToCoords:__
 This function allows you to walk a ped to precise coordinates. 
 
-Usage :
+Usage:
 ```lua
 exports['FiveGangPeds']:walkToCoords(coords: vector4, ped?: number, timeout: number = 5000)
  ```
