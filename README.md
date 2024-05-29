@@ -2,22 +2,30 @@
 
 ## Documentation
 
-__spawnPed:__
+### _spawnPed:_
 This function lets you create peds. 
 
 Usage:
 ```lua
-local ped = exports['FiveGangPeds']:spawnPed(model: string | number, options?: {coords?: vector4, scenario?: string})
+local ped = exports['FiveGangPeds']:spawnPed(model: string | number, options?: {
+    coords?: vector4,
+    scenario?: string,
+    static?: boolean
+})
  ```
 When the script stops, it automatically deletes peds to avoid several bugs
 
 
 Exemple:
 ```lua
-local ped = exports['FiveGangPeds']:spawnPed('a_f_m_tourist_01', {coords = vector4(1.0, 1.0, 1.0, 1.0), scenario = 'WORLD_HUMAN_MUSICIAN'})
+local ped = exports['FiveGangPeds']:spawnPed('a_f_m_tourist_01', {
+    coords = vector4(1.0, 1.0, 1.0, 1.0),
+    scenario = 'WORLD_HUMAN_MUSICIAN',
+    static = true
+})
  ```
 
-__walkToCoords:__
+### _walkToCoords:_
 This function allows you to walk a ped to precise coordinates. 
 
 Usage:
