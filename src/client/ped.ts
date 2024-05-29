@@ -87,17 +87,5 @@ const walkToCoords = async (
 	await wait(interval);
 };
 
-RegisterCommand(
-	'test',
-	async () => {
-		await walkToCoords(
-			[790.325256, -920.465942, 25.23584, 263.62207],
-			1000,
-		);
-
-		console.log('fini');
-	},
-	false,
-);
-
 exports('spawnPed', spawnPed);
+exports('walkToCoords', walkToCoords);
