@@ -21,6 +21,7 @@ addEventListener(
 interface SpawnPedOptions {
 	coords?: Vector4;
 	scenario?: string;
+	static?: boolean;
 }
 
 const spawnPed = async (
@@ -50,9 +51,11 @@ const spawnPed = async (
 		await wait(50);
 	}
 
-	SetBlockingOfNonTemporaryEvents(ped, true);
-	SetEntityInvincible(ped, true);
-	FreezeEntityPosition(ped, true);
+	if (options?.static) {
+		SetBlockingOfNonTemporaryEvents(ped, true);
+		SetEntityInvincible(ped, true);
+		FreezeEntityPosition(ped, true);
+	}
 
 	if (options?.scenario) {
 		TaskStartScenarioInPlace(ped, options.scenario, 0, true);
