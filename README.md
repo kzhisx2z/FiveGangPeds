@@ -4,3 +4,7 @@
 
 __spawnPed function:__
 
+```lua
+exports['FiveGangPeds']:spawnPed()
+ ```
+
